@@ -4,129 +4,155 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Массажист Тимур Зарбеев</title>
-
-  <!-- Иконки Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
   <style>
+    :root {
+      --main-color: #00a686;
+      --accent-color: #007a73;
+    }
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background: #f0f2f5;
       color: #333;
     }
-
     header {
-      background: linear-gradient(135deg, #00a686, #007a73);
+      background: linear-gradient(135deg, var(--main-color), var(--accent-color));
       color: white;
-      padding: 40px 20px;
+      padding: 30px 15px;
       text-align: center;
-      position: relative;
-      overflow: hidden;
     }
-
-    header::after {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: url('https://www.transparenttextures.com/patterns/cubes.png');
-      opacity: 0.05;
-      z-index: 0;
-    }
-
     header h1 {
-      position: relative;
-      z-index: 1;
-      font-size: 2.5rem;
+      font-size: 2rem;
       margin: 0;
     }
-
     nav {
-      margin-top: 20px;
-      position: relative;
-      z-index: 1;
+      margin-top: 15px;
+      flex-wrap: wrap;
     }
-
     nav a {
-      margin: 0 15px;
+      display: inline-block;
+      margin: 5px 10px;
       color: white;
       text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
+      font-weight: 600;
+      font-size: 0.95rem;
     }
-
     nav a:hover {
       color: #ffe267;
     }
-
+    /* Кнопка записи в Telegram (верхняя) */
+    .telegram-button-top {
+      text-align: center;
+      margin: 20px auto 0;
+    }
+    .telegram-button-top a {
+      background-color: #229ED9;
+      color: white;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 6px;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: background 0.3s;
+      display: inline-block;
+    }
+    .telegram-button-top a:hover {
+      background-color: #1c89c9;
+    }
     section {
       background: white;
-      margin: 40px auto;
+      margin: 30px auto;
       max-width: 900px;
       border-radius: 12px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-      padding: 40px;
-      animation: fadeIn 0.8s ease;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+      padding: 30px 20px;
     }
-
     h2 {
-      color: #00a686;
+      color: var(--main-color);
+      font-size: 1.6rem;
       margin-top: 0;
     }
-
-    button {
-      background-color: #00a686;
-      color: white;
-      border: none;
-      padding: 12px 25px;
+    p, li {
       font-size: 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s;
+      line-height: 1.6;
     }
-
-    button:hover {
-      background-color: #007a73;
+    ul {
+      padding-left: 20px;
+      margin: 0;
     }
-
     iframe {
       width: 100%;
-      height: 315px;
+      height: 220px;
       border-radius: 8px;
-      margin-bottom: 25px;
       border: none;
+      margin: 15px 0;
     }
-
-    form input, form textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
+    @media (min-width: 768px) {
+      iframe {
+        height: 315px;
+      }
+    }
+    /* Кнопка записи в Telegram (нижняя) */
+    .telegram-button {
+      display: flex;
+      justify-content: center;
+      margin: 30px 0;
+    }
+    .telegram-button a {
+      background-color: #229ED9;
+      color: white;
+      padding: 14px 28px;
+      font-size: 1.1rem;
+      font-weight: bold;
       border-radius: 6px;
-      font-size: 1rem;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: background 0.3s;
     }
-
-    footer {
+    .telegram-button a:hover {
+      background-color: #1c89c9;
+    }
+    /* Раздел "Мои соцсети" */
+    #socials {
       text-align: center;
-      padding: 30px 20px;
-      background: #eaeaea;
-      font-size: 0.9rem;
     }
-
+    .social-icons {
+      margin: 20px 0;
+    }
     .social-icons a {
       margin: 0 10px;
-      color: #555;
-      transition: color 0.3s;
+      text-decoration: none;
+      transition: transform 0.3s;
     }
-
+    .social-icons i {
+      font-size: 2rem;
+    }
     .social-icons a:hover {
-      color: #00a686;
+      transform: scale(1.2);
     }
-
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(20px);}
-      to {opacity: 1; transform: translateY(0);}
+    /* Раздел "Блог" */
+    .blog-entry {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+    }
+    .blog-entry h3 {
+      margin: 0 0 10px;
+      color: var(--accent-color);
+    }
+    .blog-entry p {
+      margin: 0;
+    }
+    footer {
+      background: #eaeaea;
+      text-align: center;
+      padding: 25px 15px;
+      font-size: 0.95rem;
     }
   </style>
 </head>
@@ -139,23 +165,27 @@
     <a href="#services">Услуги</a>
     <a href="#videos">Видео</a>
     <a href="#exercises">Упражнения</a>
-    <a href="#map">Адрес</a>
-    <a href="#contact">Контакты</a>
+    <a href="#socials">Мои соцсети</a>
+    <a href="#blog">Блог</a>
   </nav>
 </header>
 
+<div class="telegram-button-top">
+  <a href="https://t.me/istina_v_spine" target="_blank">📲 Записаться в Telegram</a>
+</div>
+
 <section id="about">
   <h2>Обо мне</h2>
-  <p>Я сертифицированный массажист с более 10 лет опыта и автор YouTube-канала и TikTok-блога о здоровье. Провожу приём в Москве и онлайн.</p>
+  <p>Я массажист с опытом более 10 лет. Помогаю избавиться от болей в спине, восстановить подвижность и вернуться к активной жизни. Индивидуальный подход, чёткие результаты и знания, которыми я делюсь с каждым клиентом.</p>
 </section>
 
 <section id="services">
   <h2>Услуги</h2>
   <ul>
-    <li>Классический массаж тела</li>
-    <li>Коррекция осанки</li>
-    <li>Физкультура при грыже</li>
-    <li>Личное сопровождение по восстановлению</li>
+    <li>Классический и спортивный массаж</li>
+    <li>Коррекция осанки и мануальная терапия</li>
+    <li>Восстановление после травм, боли в спине и грыжа</li>
+    <li>Персональный подход и сопровождение</li>
   </ul>
 </section>
 
@@ -164,41 +194,63 @@
   <iframe src="https://www.youtube.com/embed/PfaKW1oPaDs" allowfullscreen></iframe>
   <iframe src="https://www.youtube.com/embed/LZjP6L8a4-M" allowfullscreen></iframe>
   <iframe src="https://www.youtube.com/embed/kXcG9cEVi2I" allowfullscreen></iframe>
-  <p><a href="https://www.tiktok.com/@timurzarbeev" target="_blank">Смотреть TikTok Тимура Зарбеева</a></p>
+  <p><a href="https://www.tiktok.com/@timurzarbeev" target="_blank">Смотреть в TikTok</a></p>
 </section>
 
 <section id="exercises">
   <h2>Домашние упражнения</h2>
   <ul>
-    <li>Наклоны головы — 3 подхода по 10 повторений</li>
-    <li>Ротация шеи сидя — 15 секунд в каждую сторону</li>
-    <li>Потягивание рук вверх с дыханием — 5 глубоких повторений</li>
+    <li>Наклоны головы вперёд-назад — 10 раз</li>
+    <li>Круговые движения плечами — по 15 в каждую сторону</li>
+    <li>Потягивания вверх с дыханием — 5 повторений</li>
   </ul>
 </section>
 
-<section id="map">
-  <h2>Где я принимаю</h2>
-  <p>Москва, центр. Предварительная запись обязательна.</p>
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2244.0045301064326!2d37.6173!3d55.7558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a5aaf2b1c4f%3A0x9f3e3b3e3e3e3e3e!5e0!3m2!1sru!2sru!4v1680000000000" loading="lazy"></iframe>
+<section id="socials">
+  <h2>Мои соцсети</h2>
+  <div class="social-icons">
+    <a href="https://www.youtube.com/@timurzarbeev" target="_blank" title="YouTube">
+      <i class="fab fa-youtube" style="color:#FF0000;"></i>
+    </a>
+    <a href="https://www.tiktok.com/@timurzarbeev" target="_blank" title="TikTok">
+      <i class="fab fa-tiktok" style="color:#000000;"></i>
+    </a>
+    <a href="https://www.instagram.com/timur_zarbeev" target="_blank" title="Instagram">
+      <i class="fab fa-instagram" style="color:#E1306C;"></i>
+    </a>
+    <a href="https://vk.com/timur_zarbeev" target="_blank" title="ВКонтакте">
+      <i class="fab fa-vk" style="color:#4c75a3;"></i>
+    </a>
+    <a href="https://t.me/istina_v_spine" target="_blank" title="Telegram">
+      <i class="fab fa-telegram" style="color:#229ED9;"></i>
+    </a>
+    <a href="https://wa.me/79000000000" target="_blank" title="WhatsApp">
+      <i class="fab fa-whatsapp" style="color:#25D366;"></i>
+    </a>
+  </div>
 </section>
 
-<section id="contact">
-  <h2>Связаться со мной</h2>
-  <form>
-    <input type="text" placeholder="Ваше имя" required />
-    <input type="email" placeholder="Ваш email" required />
-    <textarea rows="5" placeholder="Ваше сообщение" required></textarea>
-    <button type="submit">Отправить</button>
-  </form>
+<section id="blog">
+  <h2>Блог</h2>
+  <article class="blog-entry">
+    <h3>Новые техники массажа для облегчения боли в спине</h3>
+    <p>В этой заметке я рассказываю о современных техниках массажа, которые помогают улучшить кровообращение и уменьшить боль в позвоночнике. Эффективные методы позволяют вернуть качество жизни даже при хронических болевых синдромах.</p>
+  </article>
+  <article class="blog-entry">
+    <h3>Массаж при спортивных травмах: восстановление после нагрузок</h3>
+    <p>Спортсменам важно быстро восстанавливать мышечные ткани после интенсивных тренировок. Здесь я делюсь опытом, как массаж помогает ускорить реабилитацию и повысить гибкость мышц.</p>
+  </article>
+  <article class="blog-entry">
+    <h3>Секреты расслабления мышц: советы по самомассажу</h3>
+    <p>Самомассаж может стать эффективным способом восстановления после стресса и мышечных перенапряжений. В данной статье я описываю простые техники самомассажа, помогающие снять усталость и улучшить самочувствие.</p>
+  </article>
 </section>
+
+<div class="telegram-button">
+  <a href="https://t.me/istina_v_spine" target="_blank">📲 Записаться в Telegram</a>
+</div>
 
 <footer>
-  <div class="social-icons">
-    <a href="https://www.youtube.com/@timurzarbeev" target="_blank" title="YouTube"><i class="fab fa-youtube fa-2x" style="color:#c4302b;"></i></a>
-    <a href="https://www.tiktok.com/@timurzarbeev" target="_blank" title="TikTok"><i class="fab fa-tiktok fa-2x"></i></a>
-    <a href="https://www.instagram.com/timur.zarbeev" target="_blank" title="Instagram"><i class="fab fa-instagram fa-2x" style="color:#E1306C;"></i></a>
-    <a href="https://wa.me/79000000000" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp fa-2x" style="color:#25D366;"></i></a>
-  </div>
   <p>© 2025 Тимур Зарбеев. Все права защищены.</p>
 </footer>
 
